@@ -1,0 +1,815 @@
+SQL DATE & TIME FUNCTIONS
+CURDATE(): Current date.
+CURTIME(): Current time.
+NOW(): Current date and time.
+DATE(): Extract date part.
+TIME(): Extract time part.
+YEAR(): Extract year.
+MONTH(): Extract month.
+DAY()/DAYOFMONTH(): Extract day of the month.
+WEEK(): Extract week number.
+DAYOFWEEK(): Extract day of the week.
+DATE_ADD(): Add time to a date.
+DATE_SUB(): Subtract time from a date.
+DATEDIFF(): Difference between two dates.
+TIMESTAMPDIFF(): Difference between two DATETIME values.
+STR_TO_DATE(): Convert string to date.
+DATE_FORMAT(): Format a date.
+FROM_UNIXTIME(): Convert Unix timestamp to date.
+UNIX_TIMESTAMP(): Convert date to Unix timestamp.
+
+
+1. CURDATE() - Current Date
+Description: Returns the current date in YYYY-MM-DD format (no time).
+SELECT CURDATE() AS current__date;
+
+Output:
++-------------+
+| current_date|
++-------------+
+| 2024-11-28  |
++-------------+
+
+
+2. CURTIME() - Current Time
+Description: Returns the current time in HH:MM:SS format (no date).
+SELECT CURTIME() AS current_time;
+
+Output:
++--------------+
+| current_time |
++--------------+
+| 14:32:45     |
++--------------+
+
+
+3. NOW() - Current Date and Time
+Description: Returns the current date and time in YYYY-MM-DD HH:MM:SS format.
+SELECT NOW() AS current_datetime;
+
+Output:
+
++---------------------+
+| current_datetime    |
++---------------------+
+| 2024-11-28 14:32:45 |
++---------------------+
+
+
+4. DATE() - Extract Date Part
+Description: Extracts the date part from a DATETIME or TIMESTAMP value.
+SELECT DATE('2024-11-28 14:32:45') AS extracted_date;
+
+Output:
+
++----------------+
+| extracted_date |
++----------------+
+| 2024-11-28     |
++----------------+
+
+
+5. TIME() - Extract Time Part
+Description: Extracts the time part from a DATETIME or TIMESTAMP value.
+
+SELECT TIME('2024-11-28 14:32:45') AS extracted_time;
+
+Output:
++-----------------+
+| extracted_time  |
++-----------------+
+| 14:32:45        |
++-----------------+
+
+
+6. YEAR() - Extract Year
+Description: Returns the year part from a DATE, DATETIME, or TIMESTAMP value.
+SELECT YEAR('2024-11-28') AS year_part;
+
+Output:
++-----------+
+| year_part |
++-----------+
+| 2024      |
++-----------+
+
+
+7. MONTH() - Extract Month
+Description: Returns the month part (1–12) from a DATE, DATETIME, or TIMESTAMP value.
+SELECT MONTH('2024-11-28') AS month_part;
+
+Output:
++------------+
+| month_part |
++------------+
+| 11         |
++------------+
+
+
+8. DAY() or DAYOFMONTH() - Extract Day of the Month
+Description: Returns the day of the month (1–31) from a DATE, DATETIME, or TIMESTAMP value.
+SELECT DAY('2024-11-28') AS day_part;
+
+Output:
++-----------+
+| day_part  |
++-----------+
+| 28        |
++-----------+
+
+DAY
+
+9. WEEK() - Extract Week Number
+Description: Returns the week number of the year (1–53) from a DATE, DATETIME, or TIMESTAMP value.
+SELECT WEEK('2024-11-28') AS week_number;
+
+Output:
+
++--------------+
+| week_number  |
++--------------+
+| 48           |
++--------------+
+
+
+10. DAYOFWEEK() - Day of the Week
+Description: Returns the day of the week as an integer (1 for Sunday, 2 for Monday, ..., 7 for Saturday).
+SELECT DAYOFWEEK('2024-11-28') AS day_of_week;
+
+Output:
++-------------+
+| day_of_week |
++-------------+
+| 5           |
++-------------+
+
+
+11. DATE_ADD() - Add Time to a Date
+Description: Adds a specified time interval to a date or time.
+SELECT DATE_ADD('2024-11-28', INTERVAL 10 DAY) AS new_date;
+
+Output:
+diff
+Copy code
++------------+
+| new_date   |
++------------+
+| 2024-12-08 |
++------------+
+
+
+12. DATE_SUB() - Subtract Time from a Date
+Description: Subtracts a specified time interval from a date or time.
+SELECT DATE_SUB('2024-11-28', INTERVAL 10 DAY) AS new_date;
+
+Output:
++------------+
+| new_date   |
++------------+
+| 2024-11-18 |
++------------+
+
+
+13. DATEDIFF() - Difference Between Two Dates
+Description: Returns the number of days between two dates.
+SELECT DATEDIFF('2024-11-28', '2024-11-18') AS days_diff;
+
+Output:
++-----------+
+| days_diff |
++-----------+
+| 10        |
++-----------+
+
+
+14. TIMESTAMPDIFF() - Difference Between Two Date/Time Values
+Description: Returns the difference between two date or time values in the specified unit (e.g., seconds, minutes, hours, etc.).
+SELECT TIMESTAMPDIFF(DAY, '2024-11-18', '2024-11-28') AS days_difference;
+
+Output:
++-------------------+
+| days_difference   |
++-------------------+
+| 10                |
++-------------------+
+
+
+15. STR_TO_DATE() - Convert String to Date
+Description: Converts a string to a DATE, DATETIME, or TIMESTAMP using a specified format.
+SELECT STR_TO_DATE('2024-11-28', '%Y-%m-%d') AS formatted_date;
+
+Output:
+
++----------------+
+| formatted_date |
++----------------+
+| 2024-11-28     |
++----------------+
+
+
+16. DATE_FORMAT() - Format a Date
+Description: Formats a DATE, DATETIME, or TIMESTAMP value into a string according to a specified format.
+
+SELECT DATE_FORMAT('2024-11-28', '%W, %M %d, %Y') AS formatted_date;
+
+Output:
++------------------------+
+| formatted_date         |
++------------------------+
+| Thursday, November 28, 2024 |
++------------------------+
+
+
+17. FROM_UNIXTIME() - Convert Unix Timestamp to Date
+Description: Converts a Unix timestamp to a DATETIME value.
+SELECT FROM_UNIXTIME(1609459200) AS datetime_value;
+
+Output:
++---------------------+
+| datetime_value      |
++---------------------+
+| 2021-01-01 00:00:00 |
++---------------------+
+
+
+18. UNIX_TIMESTAMP() - Convert Date to Unix Timestamp
+Description: Converts a DATETIME or DATE value to a Unix timestamp.
+SELECT UNIX_TIMESTAMP('2024-11-28 14:32:45') AS unix_timestamp;
+
+Output:
++------------------+
+| unix_timestamp  |
++------------------+
+| 1638111165      |
++------------------+
+—------------------------------------------------------------------------------------------------------------------------------
+19. LAST_DAY() – Last Day of the Month
+Description: Returns the last day of the month for a given date.
+SELECT LAST_DAY('2024-11-28') AS last_day_of_month;
+
+Output:
++-------------------+
+| last_day_of_month |
++-------------------+
+| 2024-11-30        |
++-------------------+
+
+
+20. MAKEDATE() – Create a Date from Year and Day Number
+Description: Returns a date from a given year and day number (1–366).
+SELECT MAKEDATE(2024, 60) AS result_date;
+
+Output:
++-------------+
+| result_date |
++-------------+
+| 2024-02-29  |
++-------------+
+
+
+21. MAKETIME() – Create Time from Hour, Minute, Second
+Description: Returns a time value from hour, minute, and second.
+SELECT MAKETIME(14, 30, 15) AS result_time;
+
+Output:
++-------------+
+| result_time |
++-------------+
+| 14:30:15    |
++-------------+
+
+
+22. MONTHNAME() – Full Name of the Month
+Description: Returns the name of the month from a date.
+SELECT MONTHNAME('2024-11-28') AS month_name;
+
+Output:
++-------------+
+| month_name  |
++-------------+
+| November    |
++-------------+
+
+
+23. DAYNAME() – Name of the Day
+Description: Returns the name of the weekday.
+SELECT DAYNAME('2024-11-28') AS day_name;
+
+Output:
++-----------+
+| day_name  |
++-----------+
+| Thursday  |
++-----------+
+
+
+24. QUARTER() – Quarter of the Year
+Description: Returns the quarter (1 to 4) of the year for a date.
+SELECT QUARTER('2024-11-28') AS quarter_value;
+
+Output:
++---------------+
+| quarter_value |
++---------------+
+| 4             |
++---------------+
+
+
+25. EXTRACT() – Extract Specific Part of Date
+Description: Returns part of a date (e.g., YEAR, MONTH, DAY, etc.).
+SELECT EXTRACT(WEEK FROM '2024-11-28') AS week_value;
+
+Output:
++-------------+
+| week_value  |
++-------------+
+| 48          |
++-------------+
+
+You can extract:
+YEAR
+
+
+MONTH
+
+
+DAY
+
+
+WEEK
+
+
+HOUR
+
+
+MINUTE
+
+
+SECOND
+
+
+QUARTER
+
+
+etc.
+
+
+
+26. ADDDATE() – Same as DATE_ADD()
+Description: Synonym for DATE_ADD(). Adds days or intervals.
+SELECT ADDDATE('2024-11-28', INTERVAL 5 DAY) AS new_date;
+
+Output:
++------------+
+| new_date   |
++------------+
+| 2024-12-03 |
++------------+
+
+
+27. SUBDATE() – Same as DATE_SUB()
+Description: Synonym for DATE_SUB(). Subtracts days or intervals.
+SELECT SUBDATE('2024-11-28', INTERVAL 5 DAY) AS new_date;
+
+Output:
++------------+
+| new_date   |
++------------+
+| 2024-11-23 |
++------------+
+
+
+28. SEC_TO_TIME() – Convert Seconds to Time
+Description: Converts an integer number of seconds to HH:MM:SS format.
+SELECT SEC_TO_TIME(3661) AS time_value;
+
+Output:
++-------------+
+| time_value  |
++-------------+
+| 01:01:01    |
++-------------+
+
+
+29. TIME_TO_SEC() – Convert Time to Seconds
+Description: Converts a time value into seconds.
+SELECT TIME_TO_SEC('01:01:01') AS total_seconds;
+
+Output:
++----------------+
+| total_seconds  |
++----------------+
+| 3661           |
++----------------+
+
+
+30. SYSDATE() – Current Date and Time (Execution Time)
+Description: Returns the exact time at the moment the query executes (unlike NOW() which may be cached).
+SELECT SYSDATE() AS system_time;
+
+Output:
++---------------------+
+| system_time         |
++---------------------+
+| 2024-11-28 14:35:50 |
++---------------------+
+
+
+Table Setup
+A single employee_attendance table is reused for every question in this workbook — from basic single-function calls through advanced multi-function reports.
+CREATE TABLE employee_attendance
+(
+	emp_id INT PRIMARY KEY AUTO_INCREMENT,
+	emp_name VARCHAR(100),
+	department VARCHAR(50),
+	joining_date DATE,
+	birth_date DATE,
+	login_time DATETIME,
+	logout_time DATETIME,
+	salary DECIMAL(10,2)
+);
+
+Sample Data
+INSERT INTO employee_attendance
+(emp_name, department, joining_date, birth_date, login_time, logout_time, salary)
+VALUES
+('Rahul','IT','2021-06-15','1998-05-10','2024-11-20 09:05:10','2024-11-20 18:15:30',55000),
+('Sneha','HR','2020-03-21','1996-11-18','2024-11-21 08:55:20','2024-11-21 17:45:50',48000),
+('Arjun','Finance','2019-08-10','1994-07-30','2024-11-22 09:15:45','2024-11-22 18:35:20',62000),
+('Priya','IT','2022-01-05','2000-01-25','2024-11-23 09:00:00','2024-11-23 17:55:40',51000),
+('Kiran','Admin','2018-12-11','1992-09-15','2024-11-24 08:40:30','2024-11-24 17:30:00',45000),
+('Anjali','Testing','2023-04-17','1999-12-20','2024-11-25 09:12:10','2024-11-25 18:05:00',47000),
+('Vijay','IT','2021-09-14','1997-04-08','2024-11-26 09:08:15','2024-11-26 18:20:40',59000),
+('Divya','HR','2019-10-19','1995-06-11','2024-11-27 08:50:30','2024-11-27 17:42:15',50000),
+('Ramesh','Finance','2017-07-01','1991-08-14','2024-11-28 09:03:00','2024-11-28 18:12:00',70000),
+('Pooja','Testing','2022-05-09','2001-03-19','2024-11-29 09:18:50','2024-11-29 18:25:10',53000);
+
+
+ 
+select*from  employee_attendance;
+
+Basic Level
+20 Questions — one date/time function at a time
+Q1. Display today's date.
+SELECT CURDATE() AS today_date;
+
+Q2. Display the current time.
+SELECT CURTIME() AS current_time_now;
+
+Q3. Display the current date and time.
+SELECT NOW() AS current_datetime;
+
+Q4. Display only the date part from every employee's login time.
+SELECT emp_name, DATE(login_time) AS login_date
+FROM employee_attendance;
+
+Q5. Display only the time part from every employee's login time.
+SELECT emp_name, TIME(login_time) AS login_time_only
+FROM employee_attendance;
+
+Q6. Display employee names along with their joining year.
+SELECT emp_name, YEAR(joining_date) AS joining_year
+FROM employee_attendance;
+
+Q7. Display employee names along with their birth month number.
+SELECT emp_name, MONTH(birth_date) AS birth_month
+FROM employee_attendance;
+
+Q8. Display employee names and day of birth.
+SELECT emp_name, DAY(birth_date) AS birth_day
+FROM employee_attendance;
+
+Q9. Display the week number of every employee's joining date.
+SELECT emp_name, WEEK(joining_date) AS week_number
+FROM employee_attendance;
+
+Q10. Display the weekday number of each employee's joining date.
+-- WEEKDAY(): 0 = Monday ... 6 = Sunday
+SELECT emp_name, WEEKDAY(joining_date) AS weekday_number
+FROM employee_attendance;
+
+Q11. Add 30 days to every employee's joining date.
+SELECT emp_name, DATE_ADD(joining_date, INTERVAL 30 DAY) AS new_date
+FROM employee_attendance;
+
+Q12. Subtract 15 days from every employee's joining date.
+SELECT emp_name, DATE_SUB(joining_date, INTERVAL 15 DAY) AS new_date
+FROM employee_attendance;
+
+Q13. Find how many days each employee has worked from joining date until today.
+SELECT emp_name, DATEDIFF(CURDATE(), joining_date) AS days_worked
+FROM employee_attendance;
+
+Q14. Find the number of days between login time and logout time.
+-- Returns 0 for same-day login/logout records in the sample data
+SELECT emp_name, DATEDIFF(logout_time, login_time) AS days_between
+FROM employee_attendance;
+
+Q15. Convert the string '2024-12-31' into a date.
+SELECT STR_TO_DATE('2024-12-31', '%Y-%m-%d') AS converted_date;
+
+Q16. Display joining dates in the format: Monday, January 01, 2024
+SELECT emp_name,
+   	DATE_FORMAT(joining_date, '%W, %M %d, %Y') AS formatted_date
+FROM employee_attendance;
+
+Q17. Display the Unix timestamp of login_time.
+SELECT emp_name, UNIX_TIMESTAMP(login_time) AS unix_ts
+FROM employee_attendance;
+
+Q18. Convert Unix timestamp 1700000000 into DateTime.
+SELECT FROM_UNIXTIME(1700000000) AS converted_datetime;
+
+Q19. Display the last day of each employee's joining month.
+SELECT emp_name, LAST_DAY(joining_date) AS last_day_of_month
+FROM employee_attendance;
+
+Q20. Display the month name and day name of every employee's birth date.
+SELECT emp_name,
+   	MONTHNAME(birth_date) AS birth_month_name,
+   	DAYNAME(birth_date) AS birth_day_name
+FROM employee_attendance;
+
+
+ 
+
+Intermediate Level
+20 Questions — filtering, calculations and formatting
+Q1. Display employees who joined in the current year.
+SELECT emp_name, joining_date
+FROM employee_attendance
+WHERE YEAR(joining_date) = YEAR(CURDATE());
+
+Q2. Display employees born in November.
+SELECT emp_name, birth_date
+FROM employee_attendance
+WHERE MONTH(birth_date) = 11;
+
+Q3. Display employees whose joining month is June.
+SELECT emp_name, joining_date
+FROM employee_attendance
+WHERE MONTH(joining_date) = 6;
+
+Q4. Display employees whose birthday falls on the 10th day.
+SELECT emp_name, birth_date
+FROM employee_attendance
+WHERE DAY(birth_date) = 10;
+
+Q5. Display employees who joined in Quarter 2.
+SELECT emp_name, joining_date
+FROM employee_attendance
+WHERE QUARTER(joining_date) = 2;
+
+Q6. Display employee names and their age in years (use TIMESTAMPDIFF()).
+SELECT emp_name,
+   	TIMESTAMPDIFF(YEAR, birth_date, CURDATE()) AS age_years
+FROM employee_attendance;
+
+Q7. Display employees who have completed more than 3 years in the company.
+SELECT emp_name, joining_date
+FROM employee_attendance
+WHERE TIMESTAMPDIFF(YEAR, joining_date, CURDATE()) > 3;
+
+Q8. Display employee names and their total working hours.
+SELECT emp_name,
+   	TIMESTAMPDIFF(HOUR, login_time, logout_time) AS working_hours
+FROM employee_attendance;
+
+Q9. Display employee names and working minutes.
+SELECT emp_name,
+   	TIMESTAMPDIFF(MINUTE, login_time, logout_time) AS working_minutes
+FROM employee_attendance;
+
+Q10. Display employees whose login time is before 9 AM.
+SELECT emp_name, login_time
+FROM employee_attendance
+WHERE TIME(login_time) < '09:00:00';
+
+Q11. Display employees who logged in after 9:10 AM.
+SELECT emp_name, login_time
+FROM employee_attendance
+WHERE TIME(login_time) > '09:10:00';
+
+Q12. Display employees whose joining date falls on Monday.
+SELECT emp_name, joining_date
+FROM employee_attendance
+WHERE DAYNAME(joining_date) = 'Monday';
+
+Q13. Display employees whose birth month name starts with 'J'.
+SELECT emp_name, birth_date
+FROM employee_attendance
+WHERE MONTHNAME(birth_date) LIKE 'J%';
+
+Q14. Display employees who joined in Week Number 25.
+SELECT emp_name, joining_date
+FROM employee_attendance
+WHERE WEEK(joining_date) = 25;
+
+Q15. Display employee names and the last day of their birth month.
+SELECT emp_name, LAST_DAY(birth_date) AS last_day_birth_month
+FROM employee_attendance;
+
+Q16. Display employee names with joining date after adding one year.
+SELECT emp_name,
+   	DATE_ADD(joining_date, INTERVAL 1 YEAR) AS new_joining_date
+FROM employee_attendance;
+
+Q17. Display employee names with joining date before subtracting two months.
+SELECT emp_name,
+   	DATE_SUB(joining_date, INTERVAL 2 MONTH) AS earlier_date
+FROM employee_attendance;
+
+Q18. Display login time in 12-hour format. Example: 09:15 AM
+SELECT emp_name,
+   	DATE_FORMAT(login_time, '%h:%i %p') AS login_12hr
+FROM employee_attendance;
+
+Q19. Display logout time in the format: 28-Nov-2024 06:15 PM
+SELECT emp_name,
+   	DATE_FORMAT(logout_time, '%d-%b-%Y %h:%i %p') AS formatted_logout
+FROM employee_attendance;
+
+Q20. Display employees whose login and logout happened on the same date.
+SELECT emp_name
+FROM employee_attendance
+WHERE DATE(login_time) = DATE(logout_time);
+
+
+ 
+Advanced Level
+20 Questions — multi-function combinations and real-world reports
+Q1. Display employee names, age, years of experience, and retirement year (assume retirement at age 60).
+SELECT emp_name,
+   	TIMESTAMPDIFF(YEAR, birth_date, CURDATE()) AS age,
+   	TIMESTAMPDIFF(YEAR, joining_date, CURDATE()) AS experience,
+   	YEAR(birth_date) + 60 AS retirement_year
+FROM employee_attendance;
+
+Q2. Display employees who joined in the last 5 years.
+SELECT emp_name, joining_date
+FROM employee_attendance
+WHERE joining_date >= DATE_SUB(CURDATE(), INTERVAL 5 YEAR);
+
+Q3. Display employees whose birthdays are coming within the next 30 days.
+SELECT emp_name, birth_date
+FROM employee_attendance
+WHERE DATE_ADD(birth_date,
+    	INTERVAL (YEAR(CURDATE()) - YEAR(birth_date)) YEAR)
+  	BETWEEN CURDATE() AND DATE_ADD(CURDATE(), INTERVAL 30 DAY);
+
+Q4. Display employees whose work duration exceeded 9 hours.
+SELECT emp_name,
+   	TIMESTAMPDIFF(MINUTE, login_time, logout_time) / 60 AS work_hours
+FROM employee_attendance
+WHERE TIMESTAMPDIFF(MINUTE, login_time, logout_time) > 540;
+
+Q5. Display employee names and total work duration in HH:MM:SS format.
+SELECT emp_name,
+   	SEC_TO_TIME(TIMESTAMPDIFF(SECOND, login_time, logout_time)) AS work_duration
+FROM employee_attendance;
+
+Q6. Display employee names and working duration in total seconds.
+SELECT emp_name,
+   	TIMESTAMPDIFF(SECOND, login_time, logout_time) AS work_seconds
+FROM employee_attendance;
+
+Q7. Display employees who joined on weekends.
+-- DAYOFWEEK(): 1 = Sunday, 7 = Saturday
+SELECT emp_name, joining_date
+FROM employee_attendance
+WHERE DAYOFWEEK(joining_date) IN (1, 7);
+
+Q8. Display employees who joined on weekdays only.
+SELECT emp_name, joining_date
+FROM employee_attendance
+WHERE DAYOFWEEK(joining_date) NOT IN (1, 7);
+
+Q9. Display employee names and salary along with the month name of joining.
+SELECT emp_name, salary, MONTHNAME(joining_date) AS joining_month
+FROM employee_attendance;
+
+Q10. Display employees who joined in leap years.
+SELECT emp_name, joining_date
+FROM employee_attendance
+WHERE (YEAR(joining_date) % 4 = 0 AND YEAR(joining_date) % 100 <> 0)
+   OR YEAR(joining_date) % 400 = 0;
+
+Q11. Display employees whose birthday falls in Quarter 4.
+SELECT emp_name, birth_date
+FROM employee_attendance
+WHERE QUARTER(birth_date) = 4;
+
+Q12. Display employee names and number of months worked in the company.
+SELECT emp_name,
+   	TIMESTAMPDIFF(MONTH, joining_date, CURDATE()) AS months_worked
+FROM employee_attendance;
+
+Q13. Display employee names and number of weeks worked in the company.
+SELECT emp_name,
+   	TIMESTAMPDIFF(WEEK, joining_date, CURDATE()) AS weeks_worked
+FROM employee_attendance;
+
+Q14. Display employee names along with the first day of their joining month.
+SELECT emp_name,
+   	DATE_FORMAT(joining_date, '%Y-%m-01') AS first_day_of_month
+FROM employee_attendance;
+
+Q15. Display employee names whose birth year is divisible by 4.
+SELECT emp_name, birth_date
+FROM employee_attendance
+WHERE YEAR(birth_date) % 4 = 0;
+
+Q16. Display employee names along with login Unix timestamp and converted DateTime again.
+SELECT emp_name,
+   	UNIX_TIMESTAMP(login_time) AS unix_ts,
+       FROM_UNIXTIME(UNIX_TIMESTAMP(login_time)) AS converted_back
+FROM employee_attendance;
+
+Q17. Display employee names whose login time is between 9 AM and 10 AM.
+SELECT emp_name, login_time
+FROM employee_attendance
+WHERE TIME(login_time) BETWEEN '09:00:00' AND '10:00:00';
+
+Q18. Display employee names with formatted joining date as: 15 June 2021
+SELECT emp_name,
+   	DATE_FORMAT(joining_date, '%d %M %Y') AS formatted_joining_date
+FROM employee_attendance;
+
+Q19. Display employee names whose working duration is greater than 8 hours but less than 10 hours.
+SELECT emp_name,
+   	TIMESTAMPDIFF(MINUTE, login_time, logout_time) / 60 AS work_hours
+FROM employee_attendance
+WHERE TIMESTAMPDIFF(MINUTE, login_time, logout_time) > 480
+  AND TIMESTAMPDIFF(MINUTE, login_time, logout_time) < 600;
+
+Q20. Generate a report for every employee: Employee, Age, Experience, Joining Month, Joining Quarter, Last Day of Joining Month, Work Hours.
+SELECT emp_name                                              AS Employee,
+   	TIMESTAMPDIFF(YEAR, birth_date, CURDATE())        	AS Age,
+   	TIMESTAMPDIFF(YEAR, joining_date, CURDATE())      	AS Experience,
+   	MONTHNAME(joining_date)                           	AS Joining_Month,
+   	QUARTER(joining_date)                             	AS Joining_Quarter,
+   	LAST_DAY(joining_date)                            	AS Last_Day_Of_Joining_Month,
+   	SEC_TO_TIME(TIMESTAMPDIFF(SECOND, login_time, logout_time)) AS Work_Hours
+FROM employee_attendance;
+
+ 
+
+
+
+
+SET Operators
+-----------------
+Union : Combines results from two queries and removes duplicate rows. Columns must have the same number and type.
+
+Union All : Combines results from two queries and includes all rows, including duplicates. Columns must have the same number and type
+
+Intersect : Returns rows that are common to both queries. Columns must have the same number and type.
+EXCEPT: Returns rows from the first query that are not present in the second query. Columns must have the same number and type. 
+ 
+CREATE TABLE Students (
+    student_id INT PRIMARY KEY,
+    student_name VARCHAR(50),
+    course VARCHAR(50)
+);
+
+INSERT INTO Students VALUES
+(101,'Rahul','Java Full Stack'),
+(102,'Priya','Python Full Stack'),
+(103,'Kiran','Data Science'),
+(104,'Sneha','Java Full Stack'),
+(105,'Ajay','Testing');
+
+
+CREATE TABLE Placed_Students (
+    student_id INT PRIMARY KEY,
+    student_name VARCHAR(50),
+    company_name VARCHAR(50)
+);
+INSERT INTO Placed_Students VALUES
+(103,'Kiran','TCS'),
+(104,'Sneha','Infosys'),
+(105,'Ajay','Wipro'),
+(106,'Pooja','Accenture'),
+(107,'Ramesh','Capgemini');
+
+ 
+-- UNION Examples
+SELECT STUDENT_NAME FROM STUDENTS
+    UNION
+    SELECT STUDENT_NAME FROM PLACED_STUDENTS;
+
+ 
+-- UNION ALL Examples
+SELECT STUDENT_NAME FROM STUDENTS
+    UNION ALL
+    SELECT STUDENT_NAME FROM PLACED_STUDENTS; 
+-- INTERSECT Examples 
+SELECT STUDENT_NAME FROM STUDENTS
+    INTERSECT
+    SELECT STUDENT_NAME FROM PLACED_STUDENTS; 
+-- MINUS Examples 
+SELECT STUDENT_NAME FROM STUDENTS
+   EXCEPT
+    SELECT STUDENT_NAME FROM PLACED_STUDENTS;
+
+

@@ -1,0 +1,73 @@
+============================================================
+EXECUTION GUIDE
+Vehicle Rental System
+============================================================
+
+1. Open MySQL Workbench or MySQL CLI.
+
+2. Create the database:
+
+   CREATE DATABASE IF NOT EXISTS vehicle_rental_db;
+
+3. Restore the complete database dump.
+
+   From Terminal / Command Prompt in the project folder, run:
+
+   mysql -u root -p vehicle_rental_db < vehicle_rental.sql
+
+   On Windows, if mysql is not in your PATH, use the full path:
+
+   "C:\Program Files\MySQL\MySQL Server 8.0\bin\mysql.exe" -u root -p vehicle_rental_db < vehicle_rental.sql
+
+   Enter your MySQL password when prompted.
+
+   Note: The SQL file vehicle_rental.sql contains full table definitions,
+   constraints, relationships, and 30,600 verified data records.
+
+4. Verify the database:
+
+   USE vehicle_rental_db;
+   SHOW TABLES;
+
+5. Verify the records:
+
+   SELECT COUNT(*) FROM customers;
+   SELECT COUNT(*) FROM vehicles;
+   SELECT COUNT(*) FROM rental_locations;
+   SELECT COUNT(*) FROM rentals;
+
+6. Run the query files in order:
+
+   Simple_queries.txt
+   Medium_queries.txt
+   Hard_queries.txt
+
+7. Recommended learning order:
+
+   Simple Queries (Basic SELECT, Filtering, Sorting, Aggregates)
+      ↓
+   Medium Queries (JOINs, GROUP BY, HAVING, Subqueries, CASE)
+      ↓
+   Hard Queries (CTEs, Window Functions, DENSE_RANK, Top-N Analysis)
+
+============================================================
+IMPORTANT
+============================================================
+
+Database:
+vehicle_rental_db
+
+Tables:
+- customers
+- vehicles
+- rental_locations
+- rentals
+
+Relationships:
+- rentals.customer_id        → customers.customer_id
+- rentals.vehicle_id         → vehicles.vehicle_id
+- rentals.pickup_location_id → rental_locations.location_id
+- rentals.return_location_id → rental_locations.location_id
+
+The file vehicle_rental.sql is the master database dump for this project.
+============================================================

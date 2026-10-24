@@ -1,0 +1,109 @@
+DATABASE RESTORE GUIDE
+Vehicle Rental System
+============================================================
+
+PURPOSE
+------------------------------------------------------------
+
+This file provides comprehensive instructions for restoring and verifying 
+the Vehicle Rental System database.
+
+This is a documentation and reference guide, not an executable SQL script.
+
+The complete database schema, constraints, and dataset are provided in:
+
+    vehicle_rental.sql
+
+Database:
+    vehicle_rental_db
+
+Tables:
+    customers
+    vehicles
+    rental_locations
+    rentals
+
+
+STEP 1 — CREATE THE DATABASE
+------------------------------------------------------------
+
+Open MySQL Workbench or MySQL CLI and execute:
+
+    CREATE DATABASE IF NOT EXISTS vehicle_rental_db;
+
+
+STEP 2 — RESTORE THE DATABASE
+------------------------------------------------------------
+
+Open Terminal (macOS/Linux) or Command Prompt (Windows) in the project directory:
+
+macOS / Linux:
+
+    mysql -u root -p vehicle_rental_db < vehicle_rental.sql
+
+Windows (Command Prompt):
+
+    mysql -u root -p vehicle_rental_db < vehicle_rental.sql
+
+On Windows, if mysql is not recognized, use the full path:
+
+    "C:\Program Files\MySQL\MySQL Server 8.0\bin\mysql.exe" -u root -p vehicle_rental_db < vehicle_rental.sql
+
+Enter your MySQL root password when prompted.
+
+IMPORTANT:
+The SQL dump automatically drops and recreates the four tables:
+customers, vehicles, rental_locations, and rentals.
+Back up any existing tables with these names before executing the restore.
+
+
+STEP 3 — VERIFY THE DATABASE
+------------------------------------------------------------
+
+Execute these statements in MySQL Workbench or CLI:
+
+    USE vehicle_rental_db;
+
+    SHOW TABLES;
+
+Expected tables:
+
+    customers
+    vehicles
+    rental_locations
+    rentals
+
+
+STEP 4 — VERIFY RECORD COUNTS
+------------------------------------------------------------
+
+Execute the following verification queries:
+
+    SELECT COUNT(*) AS total_customers FROM customers;
+
+    SELECT COUNT(*) AS total_vehicles FROM vehicles;
+
+    SELECT COUNT(*) AS total_locations FROM rental_locations;
+
+    SELECT COUNT(*) AS total_rentals FROM rentals;
+
+Expected dataset counts:
+
+    customers        : 10000
+    vehicles         :   500
+    rental_locations :   100
+    rentals          : 20000
+
+    Total Records    : 30600
+
+
+DATABASE RELATIONSHIPS
+------------------------------------------------------------
+
+    rentals.customer_id        -> customers.customer_id
+    rentals.vehicle_id         -> vehicles.vehicle_id
+    rentals.pickup_location_id -> rental_locations.location_id
+    rentals.return_location_id -> rental_locations.location_id
+
+Foreign keys ensure referential integrity across all rental transactions.
+============================================================

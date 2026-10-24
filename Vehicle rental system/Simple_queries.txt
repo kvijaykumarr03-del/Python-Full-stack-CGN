@@ -1,0 +1,85 @@
+# Simple SQL Queries — Vehicle Rental System
+
+USE vehicle_rental_db;
+
+-- Q1. Display all customers
+SELECT * FROM customers;
+
+-- Q2. Display all vehicles
+SELECT * FROM vehicles;
+
+-- Q3. Display all rental locations
+SELECT * FROM rental_locations;
+
+-- Q4. Display all rentals
+SELECT * FROM rentals;
+
+-- Q5. Display customer names, emails, and cities
+SELECT customer_name, email, city FROM customers;
+
+-- Q6. Display vehicle models, brands, categories, and daily rates
+SELECT model_name, brand, category, daily_rate FROM vehicles;
+
+-- Q7. Display vehicles in the 'SUV' category
+SELECT * FROM vehicles
+WHERE category = 'SUV';
+
+-- Q8. Display rental locations in Bangalore
+SELECT * FROM rental_locations
+WHERE city = 'Bangalore';
+
+-- Q9. Display vehicles with a daily rate greater than 3500.00
+SELECT model_name, brand, daily_rate
+FROM vehicles
+WHERE daily_rate > 3500.00;
+
+-- Q10. Display customers who signed up after January 1st, 2025
+SELECT customer_name, city, signup_date
+FROM customers
+WHERE signup_date >= '2025-01-01';
+
+-- Q11. Display rentals where duration is greater than 5 days
+SELECT rental_id, customer_id, vehicle_id, rental_duration_days
+FROM rentals
+WHERE rental_duration_days > 5;
+
+-- Q12. Display all completed rentals
+SELECT * FROM rentals
+WHERE rental_status = 'Completed';
+
+-- Q13. Display rentals paid using UPI
+SELECT * FROM rentals
+WHERE payment_method = 'UPI';
+
+-- Q14. Display vehicles belonging to the brand 'Toyota'
+SELECT * FROM vehicles
+WHERE brand = 'Toyota';
+
+-- Q15. Display customers from Mumbai
+SELECT customer_name, email, phone, city
+FROM customers
+WHERE city = 'Mumbai';
+
+-- Q16. Display unique vehicle categories available
+SELECT DISTINCT category
+FROM vehicles;
+
+-- Q17. Display rentals sorted by total amount in descending order
+SELECT rental_id, customer_id, rental_duration_days, total_amount
+FROM rentals
+ORDER BY total_amount DESC;
+
+-- Q18. Display the top 10 highest-value rentals
+SELECT rental_id, customer_id, vehicle_id, total_amount
+FROM rentals
+ORDER BY total_amount DESC
+LIMIT 10;
+
+-- Q19. Count the total number of registered customers
+SELECT COUNT(*) AS total_customers
+FROM customers;
+
+-- Q20. Find the total revenue generated from completed rentals
+SELECT SUM(total_amount) AS total_completed_revenue
+FROM rentals
+WHERE rental_status = 'Completed';

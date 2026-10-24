@@ -143,6 +143,16 @@ rental_locations (1) ───┘  [pickup_location_id & return_location_id]
 
 ---
 
+## 🎥 Project Demo & Screen Recording
+
+A full video walkthrough showcasing the project architecture, database schema, relational queries, and execution is included in this directory:
+
+<video src="Screen%20Recording%202026-10-22%20235519.mp4" controls width="100%"></video>
+
+> 📥 **Direct Video File:** [`Screen Recording 2026-10-22 235519.mp4`](Screen%20Recording%202026-10-22%20235519.mp4)
+
+---
+
 ## 📊 SQL Analysis — 60 Practice Queries
 
 The project includes **60 meticulously designed queries** categorized across three difficulty tiers:
@@ -193,14 +203,17 @@ The queries answer key business operations and executive questions:
 ```text
 Vehicle rental system/
 │
-├── README.md                   # Complete documentation and setup manual
-├── vehicle_rental.sql          # Full database dump (DDL, constraints & 30,600 rows)
-├── ER-Diagram.png              # High-resolution Entity Relationship Diagram
-├── Database_Restore_Guide.txt  # Step-by-step restoration instructions
-├── Execution.txt               # Execution guide & recommended query sequence
-├── Simple_queries.txt          # 20 Beginner SQL practice queries
-├── Medium_queries.txt          # 20 Intermediate relational SQL queries
-└── Hard_queries.txt            # 20 Advanced SQL queries (CTEs, Window Functions)
+├── README.md                           # Complete documentation and setup manual
+├── Screen Recording 2026-10-22 235519.mp4 # Full HD project walkthrough & demo video
+├── vehicle_rental.sql                  # Full database dump (DDL, constraints & 30,600 rows)
+├── vehicle_rental.db                   # Pre-loaded SQLite database for zero-setup execution
+├── run_project.py                      # Interactive Python query runner
+├── ER-Diagram.png                      # High-resolution Entity Relationship Diagram
+├── Database_Restore_Guide.txt          # Step-by-step restoration instructions
+├── Execution.txt                       # Execution guide & recommended query sequence
+├── Simple_queries.txt                  # 20 Beginner SQL practice queries
+├── Medium_queries.txt                  # 20 Intermediate relational SQL queries
+└── Hard_queries.txt                    # 20 Advanced SQL queries (CTEs, Window Functions)
 ```
 
 ---

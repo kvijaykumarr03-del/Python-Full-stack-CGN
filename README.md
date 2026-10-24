@@ -15,6 +15,7 @@ Welcome to the **Python Full Stack** repository! This repository contains compre
   - [🚀 Project Highlights](#-project-highlights)
   - [📌 Project Overview](#-project-overview)
   - [🔗 ER Diagram & Relationships](#-er-diagram--relationships)
+  - [🎥 Project Demo & Screen Recording](#-project-demo--screen-recording)
   - [🗄️ Database Schema & Structure](#-database-schema--structure)
   - [📊 60 Graduated SQL Queries](#-60-graduated-sql-queries)
   - [🛠️ How to Run & Execute](#️-how-to-run--execute)
@@ -79,6 +80,16 @@ rental_locations (1) ───┘  [pickup_location_id & return_location_id]
 - **`customers` ➔ `rentals` (1 : N):** One customer can reserve multiple vehicle rentals over time.
 - **`vehicles` ➔ `rentals` (1 : N):** One vehicle can be rented repeatedly across distinct scheduling windows.
 - **`rental_locations` ➔ `rentals` (1 : N):** Each rental transaction originates at a pickup branch and terminates at a return branch (supporting one-way drop-offs).
+
+---
+
+### 🎥 Project Demo & Screen Recording
+
+A full video walkthrough showcasing the project architecture, relational queries, and execution is included in the project folder:
+
+<video src="Vehicle%20rental%20system/Screen%20Recording%202026-10-22%20235519.mp4" controls width="100%"></video>
+
+> 📥 **Direct Video File:** [`Screen Recording 2026-10-22 235519.mp4`](Vehicle%20rental%20system/Screen%20Recording%202026-10-22%20235519.mp4)
 
 ---
 
@@ -257,16 +268,17 @@ You can test and execute all 60 queries instantly on macOS, Linux, or Windows wi
 
 ```text
 Vehicle rental system/
-├── README.md                   # Comprehensive project documentation
-├── ER-Diagram.png              # Entity Relationship Diagram
-├── vehicle_rental.sql          # Master MySQL database dump (30,600 rows)
-├── vehicle_rental.db           # Standalone SQLite database for zero-setup execution
-├── run_project.py              # Interactive Python query runner
-├── Simple_queries.txt          # 20 Beginner SQL practice queries
-├── Medium_queries.txt          # 20 Intermediate relational SQL queries
-├── Hard_queries.txt            # 20 Advanced SQL analytical queries (CTEs, Window Functions)
-├── Database_Restore_Guide.txt  # Step-by-step restoration guide
-└── Execution.txt               # Query sequence and execution manual
+├── README.md                           # Comprehensive project documentation
+├── Screen Recording 2026-10-22 235519.mp4 # Full HD project walkthrough & demo video
+├── ER-Diagram.png                      # Entity Relationship Diagram
+├── vehicle_rental.sql                  # Master MySQL database dump (30,600 rows)
+├── vehicle_rental.db                   # Standalone SQLite database for zero-setup execution
+├── run_project.py                      # Interactive Python query runner
+├── Simple_queries.txt                  # 20 Beginner SQL practice queries
+├── Medium_queries.txt                  # 20 Intermediate relational SQL queries
+├── Hard_queries.txt                    # 20 Advanced SQL analytical queries (CTEs, Window Functions)
+├── Database_Restore_Guide.txt          # Step-by-step restoration guide
+└── Execution.txt                       # Query sequence and execution manual
 ```
 
 ---

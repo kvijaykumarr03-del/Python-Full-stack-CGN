@@ -124,7 +124,7 @@ The database contains four interconnected tables:
 ## 🔗 ER Diagram & Database Relationships
 
 <p align="center">
-  <img src="ER-Diagram-original-crowsfoot.jpeg" alt="Entity Relationship Diagram of the Vehicle Rental System" width="100%">
+  <img src="ER-Diagram.png" alt="Entity Relationship Diagram of the Vehicle Rental System (Chen Notation)" width="100%">
 </p>
 
 ### Cardinality Breakdown:
@@ -208,7 +208,8 @@ Vehicle rental system/
 ├── vehicle_rental.sql                  # Full database dump (DDL, constraints & 30,600 rows)
 ├── vehicle_rental.db                   # Pre-loaded SQLite database for zero-setup execution
 ├── run_project.py                      # Interactive Python query runner
-├── ER-Diagram-original-crowsfoot.jpeg   # High-resolution Entity Relationship Diagram
+├── ER-Diagram.png                      # Entity Relationship Diagram (Chen notation)
+├── ER-Diagram-original-crowsfoot.jpeg   # Original Crow's Foot Relational Diagram
 ├── Database_Restore_Guide.txt          # Step-by-step restoration instructions
 ├── Execution.txt                       # Execution guide & recommended query sequence
 ├── Simple_queries.txt                  # 20 Beginner SQL practice queries

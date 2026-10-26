@@ -64,7 +64,7 @@ The database models four interconnected commercial entities:
 ### 🔗 ER Diagram & Relationships
 
 <p align="center">
-  <img src="Vehicle%20rental%20system/ER-Diagram.png" alt="Entity Relationship Diagram of the Vehicle Rental System" width="100%">
+  <img src="Vehicle%20rental%20system/ER-Diagram-original-crowsfoot.jpeg" alt="Entity Relationship Diagram of the Vehicle Rental System" width="100%">
 </p>
 
 #### Entity Relationships & Cardinality:
@@ -270,7 +270,7 @@ You can test and execute all 60 queries instantly on macOS, Linux, or Windows wi
 Vehicle rental system/
 ├── README.md                           # Comprehensive project documentation
 ├── Screen Recording 2026-10-22 235519.mp4 # Full HD project walkthrough & demo video
-├── ER-Diagram.png                      # Entity Relationship Diagram
+├── ER-Diagram-original-crowsfoot.jpeg   # Entity Relationship Diagram
 ├── vehicle_rental.sql                  # Master MySQL database dump (30,600 rows)
 ├── vehicle_rental.db                   # Standalone SQLite database for zero-setup execution
 ├── run_project.py                      # Interactive Python query runner

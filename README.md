@@ -270,6 +270,7 @@ You can test and execute all 60 queries instantly on macOS, Linux, or Windows wi
 Vehicle rental system/
 ├── README.md                           # Comprehensive project documentation
 ├── Screen Recording 2026-10-22 235519.mp4 # Full HD project walkthrough & demo video
+├── Vehicle rental system ppt.pptx       # Executive project presentation slide deck
 ├── ER-Diagram.png                      # Entity Relationship Diagram (Chen notation)
 ├── ER-Diagram-original-crowsfoot.jpeg   # Original Crow's Foot Relational Diagram
 ├── vehicle_rental.sql                  # Master MySQL database dump (30,600 rows)

@@ -205,6 +205,7 @@ Vehicle rental system/
 │
 ├── README.md                           # Complete documentation and setup manual
 ├── Screen Recording 2026-10-22 235519.mp4 # Full HD project walkthrough & demo video
+├── Vehicle rental system ppt.pptx       # Executive project presentation slide deck
 ├── vehicle_rental.sql                  # Full database dump (DDL, constraints & 30,600 rows)
 ├── vehicle_rental.db                   # Pre-loaded SQLite database for zero-setup execution
 ├── run_project.py                      # Interactive Python query runner
